@@ -1,0 +1,38 @@
+<template>
+    <!--dispaly the info of an Account-->
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:person_account" size="medium"></lightning-icon>
+            <strong class="slds-p-left_small" style="white-space: normal">{accRecord.Name}</strong>
+        </h3>
+
+
+        <div class="slds-p-around_small">
+            <table class="tableStyle">
+                <tr>
+                    <td><strong class="labelstyle">Phone</strong> </td>
+                    <td>{accRecord.Phone}</td>
+                </tr>
+                <tr>
+                    <td><strong class="labelstyle">Website</strong></td>
+                    <td style="word-break: break-all">{accRecord.Website}</td>
+                </tr>
+                <tr>
+                    <td><strong class="labelstyle">Site </strong></td>
+                    <td>{accRecord.Site}</td>
+                </tr>
+
+                <tr>
+                    <td><strong class="labelstyle">Account No</strong></td>
+                    <td>{accRecord.AccountNumber}</td>
+                </tr>
+
+            </table>
+
+            <center>
+                <lightning-button label="Detail" onclick={displayRecord}></lightning-button>
+            </center>
+        </div>
+    </lightning-card>
+
+</template>

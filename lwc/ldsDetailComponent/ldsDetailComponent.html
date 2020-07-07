@@ -1,0 +1,43 @@
+<template>
+    <div class="spins">
+        <!-- View/Edit Form of the account -->
+        <template if:true={account.data}>
+            <lightning-card>
+                <h3 slot="title">
+                    <lightning-icon icon-name="standard:record" size="medium"></lightning-icon>
+                    <strong class="slds-m-left--x-small headingStyle">Account Form</strong>
+                </h3>
+                <div class="slds-p-around_medium">
+                    <lightning-input label="Name" disabled={isViewMode} value={account.data.fields.Name.value}
+                        data-field='Name'></lightning-input>
+                    <lightning-input label="Phone" disabled={isViewMode} value={account.data.fields.Phone.value}
+                        data-field='Phone'></lightning-input>
+                    <lightning-input label="Website" disabled={isViewMode} value={account.data.fields.Website.value}
+                        data-field='Website'></lightning-input>
+                    <lightning-input label="Site" disabled={isViewMode} value={account.data.fields.Site.value}
+                        data-field='Site'></lightning-input>
+                    <lightning-input label="Account Number" disabled={isViewMode}
+                        value={account.data.fields.AccountNumber.value} data-field='AccNumber'></lightning-input>
+                </div>
+
+                <center>
+                    <template if:true={isViewMode}>
+                        <lightning-button label="Edit" variant="brand" onclick={updateAccount}></lightning-button>
+                    </template>
+                    <template if:false={isViewMode}>
+                        <lightning-button label="Save" variant="brand" onclick={saveAccount}
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+
+                    </template>
+                </center>
+            </lightning-card>
+        </template>
+
+        <!-- Loading spinner while waiting for wire response-->
+        <template if:true={showLoading}>
+            <lightning-spinner alternative-text="Loading..." variant="brand">
+            </lightning-spinner>
+        </template>
+    </div>
+</template>

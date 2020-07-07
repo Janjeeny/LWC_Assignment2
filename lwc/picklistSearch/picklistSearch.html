@@ -1,0 +1,17 @@
+<template>
+    <template if:true={picklistValues.data}>
+        <div class="slds-p-around_small slds-size_3-of-3" style="background-color: white;">
+            <h2 class="headingStyle"> Search Account by Type:</h2>
+            <center>
+                <select class="slds-select slds-size_1-of-3" onchange={currentPickVal}>
+                    <option value="None">None</option>
+                    <template for:each={picklistValues.data.values} for:item="item">
+                        <option key={item.value}>{item.label}</option>
+                    </template>
+                </select>
+                <lightning-button class="slds-p-left_medium slds-size_1-of-3" label="Search" onclick={displayAccounts}
+                    variant="brand"></lightning-button>
+            </center>
+        </div>
+    </template>
+</template>

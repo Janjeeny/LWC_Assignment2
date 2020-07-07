@@ -1,0 +1,30 @@
+<template>
+    <div class=" slds-p-around_small slds-size_3-of-3">
+        <lightning-layout multiple-rows="true">
+            <!-- to display the List of Accounts-->
+            <template if:true={AccountList.data}>
+                <template for:each={AccountList.data} for:item="acc">
+                    <lightning-layout-item key={acc.Id} padding="around-small" size="4">
+                        <!--child component to display Info of each Account  -->
+                        <c-card-component acc-record={acc}></c-card-component>
+                    </lightning-layout-item>
+                </template>
+            </template>
+        </lightning-layout>
+
+        <!-- to Loading Icon while waiitng for the server response-->
+        <template if:true={showLoading}>
+            <div class="spins">
+                <lightning-spinner alternative-text="Loading..." variant="brand">
+                </lightning-spinner>
+            </div>
+        </template>
+
+        <!--Message to display when no response to display-->
+        <template if:true={message}>
+            <strong>
+                <center>{message}</center>
+            </strong>
+        </template>
+    </div>
+</template>

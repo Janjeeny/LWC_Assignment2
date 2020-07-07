@@ -1,0 +1,5 @@
+.headingStyle {
+  font-size: 120%;
+  font-weight: var(--lwc-fontWeightBold, 700);
+  color: #8020df;
+}
